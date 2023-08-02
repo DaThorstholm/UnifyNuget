@@ -64,6 +64,11 @@ public class CsProjHelper
             foreach (var element in elemList)
             {
                 var xmlElement = (XmlElement)element;
+                if (xmlElement?.GetAttribute("Version") is null)
+                {
+                    continue;
+                }
+                
                 xmlElement.RemoveAttribute("Version");
             }
             

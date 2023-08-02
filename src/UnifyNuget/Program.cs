@@ -15,7 +15,7 @@ if (doMagic.Key != ConsoleKey.Y)
 {
     Console.WriteLine("UnifyNuget cancelled");
     
-    return;
+    return -1;
 }
 
 if (File.Exists(propsFileName))
@@ -30,7 +30,7 @@ if (!foundCsProjs)
 {
     Console.WriteLine("Didn't find any csproj files");
     
-    return;
+    return -1;
 }
 
 var packageVersions = csProjHelper.GetAllPackageVersions();
@@ -38,7 +38,7 @@ if (!packageVersions.Any())
 {
     Console.WriteLine("Didn't find any nuget packages in csproj files");
     
-    return;
+    return -1;
 }
 
 // Create Directory.Packages.props
@@ -53,3 +53,5 @@ csProjHelper.RemoveVersions();
 Console.WriteLine("Updated csproj files");
 
 Console.WriteLine("UnifyNuget Completed");
+
+return 0;
