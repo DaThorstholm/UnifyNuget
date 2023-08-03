@@ -58,6 +58,7 @@ public class CsProjHelper
         foreach (var csProj in CsProjs)
         {
             var doc = new XmlDocument();
+            doc.PreserveWhitespace = true;
             doc.Load(csProj.FilePath);
             
             var elemList = doc.GetElementsByTagName("PackageReference");
