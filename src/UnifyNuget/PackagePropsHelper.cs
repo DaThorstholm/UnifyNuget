@@ -11,7 +11,8 @@ public class PackagePropsHelper
     {
         var nugetPackagesMaxVersions = nugetPackages
             .GroupBy(s => s.Include)
-            .Select(g => g.MaxBy(np => np.Version))
+            .Select(g => g.MaxBy(np => new SematicVersion(np.Version)))
+            .OrderBy(s => s.Include)
             .ToList();
 
         if (nugetPackagesMaxVersions.Any())
