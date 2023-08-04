@@ -2,11 +2,9 @@
 
 var propsFileName = "Directory.Packages.props";
 
-Console.WriteLine("UnifyNuget started");
+Splash.Print();
 Console.WriteLine();
-Console.WriteLine($"This program will create a new file in the root directory called {propsFileName}");
-Console.WriteLine("Afterwards it will update all csproj files to remove the nuget package version numbers");
-Console.WriteLine("The program must be run from the root folder of the project");
+Console.WriteLine("Unify nuget packages from csproj files found in directory and subdirectories.");
 Console.WriteLine("Do you want to continue? (Y)es or press any other key to cancel");
 var doMagic = Console.ReadKey();
 Console.WriteLine();
